@@ -1,0 +1,76 @@
+[binaries]
+c = 'arm-none-eabi-gcc'
+cpp = 'arm-none-eabi-g++'
+ld = 'arm-none-eabi-ld'
+ar = 'arm-none-eabi-ar'
+as = 'arm-none-eabi-as'
+size = 'arm-none-eabi-size'
+objdump = 'arm-none-eabi-objdump'
+objcopy = 'arm-none-eabi-objcopy'
+strip = 'arm-none-eabi-strip'
+gdb = 'arm-none-eabi-gdb'
+
+[properties]
+
+c_args = [
+  '-Wall',
+  '-fdata-sections',
+  '-ffunction-sections',
+  '-mcpu=cortex-m3',
+  '-mthumb']
+
+cxx_args = [
+  '-Wall',
+  '-fdata-sections',
+  '-ffunction-sections',
+  '-mcpu=cortex-m3',
+  '-mthumb']
+
+c_link_args = [
+  '-specs=nano.specs',
+  '-lc',
+  '-lm',
+  '-lnosys',
+  '-Wl,--gc-sections',
+  '-mcpu=cortex-m3']
+
+cxx_link_args = [
+  '-specs=nano.specs',
+  '-lc',
+  '-lm',
+  '-lnosys',
+  '-Wl,--gc-sections',
+  '-mcpu=cortex-m3']
+
+asm_flags = [
+  '-mcpu=cortex-m3',
+  '-mthumb',
+  '-x assembler-with-cpp']
+
+exe_linker_flags = [
+  '-mcpu=cortex-m3',
+  '-mthumb',
+  '-lc',
+  '-lm',
+  '-lnosys',
+  '--specs=nano.specs']
+
+module_linker_flags = [
+  '-mcpu=cortex-m3',
+  '-lc',
+  '-lm',
+  '-lnosys',
+  '-mthumb']
+
+shared_linker_flags = [
+  '-mcpu=cortex-m3',
+  '-lc',
+  '-lm',
+  '-lnosys',
+  '-mthumb']
+
+[host_machine]
+system = 'none'
+cpu_family = 'arm'
+cpu = 'cortex-m3'
+endian = 'little'
